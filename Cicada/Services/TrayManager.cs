@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using System.Diagnostics;
+using System.IO;
 
 namespace Cicada.Services
 {
@@ -32,6 +34,7 @@ namespace Cicada.Services
                 SetRunOnStartup(RunOnStartupItem.Checked);
             };
             TrayIcon.ContextMenuStrip.Items.Add(RunOnStartupItem);
+            TrayIcon.ContextMenuStrip.Items.Add("Settings", null, Settings_Clicked);
             TrayIcon.ContextMenuStrip.Items.Add("Exit", null, Exit_Clicked);
         }
 
@@ -54,6 +57,15 @@ namespace Cicada.Services
             {
                 key?.DeleteValue(RegKeyName, false);
             }
+        }
+
+        private void Settings_Clicked(object? sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "config.ini",
+                UseShellExecute = true,
+            });
         }
 
         private void Exit_Clicked(object? sender, EventArgs e)
