@@ -9,6 +9,7 @@ By default, the keybinds are:
 - Volume Down: `Alt+F6`
 - Mute: `Alt+F5`
 - Isolate: `Alt+M`
+
 To change keybinds, or change the increment, edit the `config.ini` file within the same directory as the exe.
 <div align="center">
   <img width="312" height="119" alt="Cicada Flyout" src="https://github.com/user-attachments/assets/d38ef1ba-b131-4cb3-bd0c-befadae29f5a" />
