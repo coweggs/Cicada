@@ -1,8 +1,6 @@
 ﻿using NAudio.CoreAudioApi;
-using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 
 namespace Cicada.Services
 {

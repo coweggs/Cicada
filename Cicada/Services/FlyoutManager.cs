@@ -20,7 +20,7 @@ namespace Cicada.Services
             flyout = new Flyout();
             flyout.ShowInTaskbar = false;
             flyout.Topmost = true;
-            flyout.Focusable = false;            
+            flyout.Focusable = false;
 
             timer = new System.Threading.Timer(_ =>
             {
@@ -33,8 +33,8 @@ namespace Cicada.Services
 
         public void ShowFlyout(float level, bool muted, uint pId)
         {
-            flyout.SetVolumeText(((int)(level*100)).ToString());
-            flyout.SetSliderValue(level*100);
+            flyout.SetVolumeText(((int)(level * 100)).ToString());
+            flyout.SetSliderValue(level * 100);
             flyout.SetMute(muted);
             flyout.SetFlyoutPosition();
             BitmapSource icon = ForegroundIconHelper.GetForegroundWindowIcon();

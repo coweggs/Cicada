@@ -21,7 +21,7 @@ namespace Cicada
 
         public void SetSliderValue(float value)
         {
-            SliderBar.Width = 105f/100f * value;
+            SliderBar.Width = 105f / 100f * value;
         }
 
         public void SetIcon(BitmapSource icon)

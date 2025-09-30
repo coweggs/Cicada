@@ -8,6 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <PlatformTarget>AnyCPU</PlatformTarget>
+	<ApplicationIcon>cicada.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,16 +23,12 @@
   <ItemGroup>
     <PackageReference Include="MouseKeyHook" Version="5.7.1" />
     <PackageReference Include="NAudio" Version="2.2.1" />
-    <PackageReference Include="System.Management" Version="9.0.9" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="cicada.ico">
+    <Content Include="cicada.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="tray-icon.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
 
 </Project>

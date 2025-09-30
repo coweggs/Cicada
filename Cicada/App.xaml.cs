@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using Cicada.Services;
+﻿using Cicada.Services;
+using System.Windows;
 
 namespace Cicada
 {

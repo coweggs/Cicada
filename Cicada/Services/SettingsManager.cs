@@ -6,7 +6,7 @@
 
         public SettingsManager()
         {
-            ConfigIni = new IniFile("config");
+            ConfigIni = new IniFile("config.ini");
             if (!ConfigIni.KeyExists("Increment"))
                 ConfigIni.Write("Increment", "2");
             if (!ConfigIni.KeyExists("RunOnStartup"))
