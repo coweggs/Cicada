@@ -15,7 +15,7 @@ namespace Cicada.Services
             // tray icon
             TrayIcon.Visible = true;
 
-            TrayIcon.Icon = new System.Drawing.Icon("tray-icon.ico");
+            TrayIcon.Icon = new System.Drawing.Icon("cicada.ico");
             TrayIcon.Text = "Cicada";
 
             TrayIcon.ContextMenuStrip = new ContextMenuStrip();
