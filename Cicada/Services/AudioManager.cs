@@ -112,6 +112,7 @@ namespace Cicada.Services
             AudioSessionControl? session = GetActiveSession();
             if (session != null)
             {
+                bool allMuted = true;
                 MMDevice? device = Enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
                 SessionCollection sessions = device.AudioSessionManager.Sessions;
 
@@ -120,9 +121,23 @@ namespace Cicada.Services
                 {
                     if (sessions[i].GetProcessID != session.GetProcessID)
                     {
-                        sessions[i].SimpleAudioVolume.Mute = !sessions[i].SimpleAudioVolume.Mute;
+                        allMuted = allMuted && sessions[i].SimpleAudioVolume.Mute;
+                        if (!allMuted)
+                        {
+                            break;
+                        }
                     }
                 }
+                session.SimpleAudioVolume.Mute = false;
+                for (int i = 0; i < sessions.Count; i++)
+                {
+                    if (sessions[i].GetProcessID != session.GetProcessID)
+                    {
+                        sessions[i].SimpleAudioVolume.Mute = !allMuted;
+                    }
+                }
+
+                FlyoutMan.ShowIsolateFlyout(allMuted, GetActivePID());
             }
         }
     }

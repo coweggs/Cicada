@@ -22,7 +22,7 @@
             if (!ConfigIni.KeyExists("VolMuteKey"))
                 ConfigIni.Write("VolMuteKey", "F5");
             if (!ConfigIni.KeyExists("IsolateKey"))
-                ConfigIni.Write("IsolateKey", "F8");
+                ConfigIni.Write("IsolateKey", "M");
         }
 
         public float GetIncrement()
@@ -31,7 +31,17 @@
             => bool.TryParse(ConfigIni.Read("RunOnStartup"), out var x) && x;
 
         private Keys ReadKey(string name, Keys fallback)
-            => Enum.TryParse(ConfigIni.Read(name), out Keys k) ? k : fallback;
+        {
+            if (Enum.TryParse(ConfigIni.Read(name), out Keys k))
+            {
+                return k;
+            }
+            else
+            {
+                MessageBox.Show($"Invalid {name} in config.ini. Defaulting to fallback {fallback.ToString()}");
+                return fallback;
+            }
+        }
         //
         public Keys GetModKey() => ReadKey("ModKey", Keys.Alt);
         public Keys GetVolUpKey() => ReadKey("VolUpKey", Keys.F7);

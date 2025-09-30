@@ -21,6 +21,7 @@ namespace Cicada
             SettingsMan = new SettingsManager();
             AudioMan = new AudioManager(FlyoutMan);
             HotkeyMan = new HotkeyManager(AudioMan, SettingsMan);
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
         }
 
         protected override void OnExit(ExitEventArgs e)
