@@ -10,6 +10,8 @@ By default:
 - Mute: `Alt+F5`
 - Isolate: `Alt+M`
 To change keybinds, or change the increment, edit the `config.ini` file within the same directory as the exe.
+<img width="312" height="119" alt="Cicada Flyout" src="https://github.com/user-attachments/assets/d38ef1ba-b131-4cb3-bd0c-befadae29f5a" />
+
 
 ## Notes
 - Make sure the program is actually selected before using the keybinds. Sometimes the Cicada flyout will be targetted as the new active window, pressing on the desired window again fixes this.
