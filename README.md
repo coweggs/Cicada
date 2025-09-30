@@ -1,6 +1,7 @@
-# Cicada
-
-<img width="50" height="50" alt="Cicada" src="https://github.com/user-attachments/assets/2a3d1427-ec16-4803-8194-f8ff8f8c9e07" />
+<div align="center">
+  <img width="50" height="50" alt="Cicada" src="https://github.com/user-attachments/assets/2a3d1427-ec16-4803-8194-f8ff8f8c9e07" />
+  # Cicada
+</div>
 
 
 Keybinds for Volume Mixer on Foreground Active Window.
