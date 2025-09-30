@@ -3,8 +3,7 @@
 </div>
 
 ## What is Cicada?
-Cicada is a simple program that brings keybinds to volume mixer, specifically on the currently active window.
-
+Cicada is a simple program that brings keybinds to volume mixer, specifically on the currently active window. <br/>
 By default, the keybinds are:
 - Volume Up: `Alt+F7`
 - Volume Down: `Alt+F6`
