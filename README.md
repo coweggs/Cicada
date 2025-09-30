@@ -11,6 +11,8 @@ By default, the keybinds are:
 - Isolate: `Alt+M`
 
 To change keybinds, or change the increment, edit the `config.ini` file within the same directory as the exe.
+Proper keybind names can be found here: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys
+
 <div align="center">
   <img width="393" height="150" alt="Cicada Flyout" src="https://github.com/user-attachments/assets/d38ef1ba-b131-4cb3-bd0c-befadae29f5a" />
   <img width="268" height="150" alt="image" src="https://github.com/user-attachments/assets/fea5ab16-155c-4f84-9edf-836b4666db17" />
