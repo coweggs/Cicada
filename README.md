@@ -12,7 +12,7 @@ By default:
 To change keybinds, or change the increment, edit the `config.ini` file within the same directory as the exe.
 <div align="center">
   <img width="312" height="119" alt="Cicada Flyout" src="https://github.com/user-attachments/assets/d38ef1ba-b131-4cb3-bd0c-befadae29f5a" />
-  <img width="249" height="125" alt="image" src="https://github.com/user-attachments/assets/2263edca-e027-46fb-844a-8ac6808ca759" />
+  <img width="266" height="148" alt="image" src="https://github.com/user-attachments/assets/fea5ab16-155c-4f84-9edf-836b4666db17" />
 </div>
 
 
