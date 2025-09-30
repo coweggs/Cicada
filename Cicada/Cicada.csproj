@@ -26,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="cicada.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="tray-icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
