@@ -12,8 +12,10 @@ By default:
 To change keybinds, or change the increment, edit the `config.ini` file within the same directory as the exe.
 
 ## Notes
+- Make sure the program is actually selected before using the keybinds. Sometimes the Cicada flyout will be targetted as the new active window, pressing on the desired window again fixes this.
 - This program only detects apps with active audio sessions (the ones that show up in volume mixer).
 - If you have two of the same program open, it will effect both, which is also how it works in Microsoft's Volume Mixer.
+- Don't press F4 instead of F5 🦄
 
 ## Credits:
 - Session Audio Manipulation: https://github.com/naudio/NAudio
