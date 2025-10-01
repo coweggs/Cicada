@@ -1,4 +1,6 @@
-﻿namespace Cicada.Services
+﻿using System.IO;
+
+namespace Cicada.Services
 {
     internal class SettingsManager
     {
@@ -6,7 +8,9 @@
 
         public SettingsManager()
         {
-            ConfigIni = new IniFile("config.ini");
+            var exeDir = AppDomain.CurrentDomain.BaseDirectory;
+
+            ConfigIni = new IniFile(Path.Combine(exeDir, "config.ini"));
             if (!ConfigIni.KeyExists("Increment"))
                 ConfigIni.Write("Increment", "2");
             if (!ConfigIni.KeyExists("RunOnStartup"))

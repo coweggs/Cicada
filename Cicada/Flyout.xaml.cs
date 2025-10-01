@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Cicada
@@ -29,13 +28,10 @@ namespace Cicada
             AppIconImage.Source = icon;
         }
 
-        private readonly SolidColorBrush unmuted =
-            (SolidColorBrush)new BrushConverter().ConvertFromString("#4cc2ff");
-        private readonly SolidColorBrush muted =
-            (SolidColorBrush)new BrushConverter().ConvertFromString("#e81123");
         public void SetMute(bool isMuted)
         {
-            SliderBar.Background = isMuted ? muted : unmuted;
+            AppIconImage.Opacity = isMuted ? 0.2f : 1.0f;
+            MuteIcon.Opacity = isMuted ? 1.0f : 0.0f;
         }
 
         public void SetFlyoutPosition()

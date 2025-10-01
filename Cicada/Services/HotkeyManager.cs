@@ -31,7 +31,7 @@ namespace Cicada.Services
             GlobalHook.KeyDown += OnKeyDown;
         }
 
-        private void OnKeyDown(object? sender, System.Windows.Forms.KeyEventArgs e)
+        private void OnKeyDown(object? sender, KeyEventArgs e)
         {
             if (e.Modifiers == Mod)
             {

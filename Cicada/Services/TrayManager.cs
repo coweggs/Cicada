@@ -17,7 +17,9 @@ namespace Cicada.Services
             // tray icon
             TrayIcon.Visible = true;
 
-            TrayIcon.Icon = new System.Drawing.Icon("cicada.ico");
+            var exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            TrayIcon.Icon = new System.Drawing.Icon(Path.Combine(exeDir, "cicada.ico"));
+
             TrayIcon.Text = "Cicada";
 
             TrayIcon.ContextMenuStrip = new ContextMenuStrip();

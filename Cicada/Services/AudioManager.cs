@@ -42,12 +42,20 @@ namespace Cicada.Services
             string? processName = process.ProcessName;
             for (int i = 0; i < sessions.Count; i++)
             {
-                Process sessionProcess =
-                    Process.GetProcessById((int)sessions[i].GetProcessID);
-                if (processName == sessionProcess.ProcessName)
+                try
                 {
-                    Debug.WriteLine("Found matching process names.");
-                    return sessions[i];
+                    Process sessionProcess =
+                        Process.GetProcessById((int)sessions[i].GetProcessID);
+                    if (processName == sessionProcess.ProcessName)
+                    {
+                        Debug.WriteLine("Found matching process names.");
+                        return sessions[i];
+                    }
+                }
+                catch
+                {
+                    // process exited between GetProcessById and now
+                    continue;
                 }
             }
 
