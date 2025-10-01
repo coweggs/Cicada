@@ -128,7 +128,7 @@ namespace Cicada.Services
                 // mute all other sessions
                 for (int i = 0; i < sessions.Count; i++)
                 {
-                    if (sessions[i].GetProcessID != session.GetProcessID)
+                    if (sessions[i] != session)
                     {
                         allMuted = allMuted && sessions[i].SimpleAudioVolume.Mute;
                         if (!allMuted)
@@ -140,7 +140,7 @@ namespace Cicada.Services
                 session.SimpleAudioVolume.Mute = false;
                 for (int i = 0; i < sessions.Count; i++)
                 {
-                    if (sessions[i].GetProcessID != session.GetProcessID)
+                    if (sessions[i] != session)
                     {
                         sessions[i].SimpleAudioVolume.Mute = !allMuted;
                     }

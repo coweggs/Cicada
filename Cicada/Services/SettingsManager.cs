@@ -13,8 +13,6 @@ namespace Cicada.Services
             ConfigIni = new IniFile(Path.Combine(exeDir, "config.ini"));
             if (!ConfigIni.KeyExists("Increment"))
                 ConfigIni.Write("Increment", "2");
-            if (!ConfigIni.KeyExists("RunOnStartup"))
-                ConfigIni.Write("RunOnStartup", "False");
 
             if (!ConfigIni.KeyExists("ModKey"))
                 ConfigIni.Write("ModKey", "Alt");
@@ -31,8 +29,6 @@ namespace Cicada.Services
 
         public float GetIncrement()
             => float.TryParse(ConfigIni.Read("Increment"), out var x) ? x : 2f;
-        public bool GetRunOnStartup()
-            => bool.TryParse(ConfigIni.Read("RunOnStartup"), out var x) && x;
 
         private Keys ReadKey(string name, Keys fallback)
         {

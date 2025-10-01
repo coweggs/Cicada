@@ -24,6 +24,7 @@ namespace Cicada.Services
 
             TrayIcon.ContextMenuStrip = new ContextMenuStrip();
             bool startupEnabled = IsRunOnStartupEnabled();
+            SetRunOnStartup(startupEnabled); // refresh registry path
             ToolStripMenuItem RunOnStartupItem = new ToolStripMenuItem()
             {
                 Text = "Run on Startup",
