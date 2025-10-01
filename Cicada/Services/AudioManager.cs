@@ -80,6 +80,7 @@ namespace Cicada.Services
             else
             {
                 Debug.WriteLine("No session found for: " + Process.GetProcessById((int)pId).ProcessName + " " + pId);
+                FlyoutMan.ShowNoSessionFlyout();
             }
             return session;
         }

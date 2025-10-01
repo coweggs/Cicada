@@ -32,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="NoSessionFlyout.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IsolateFlyout.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

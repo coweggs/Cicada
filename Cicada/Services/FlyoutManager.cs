@@ -15,17 +15,13 @@ namespace Cicada.Services
 
         private Flyout flyout;
         private IsolateFlyout isolateFlyout;
+        private NoSessionFlyout noSessionFlyout;
 
         public FlyoutManager()
         {
             flyout = new Flyout();
-            flyout.ShowInTaskbar = false;
-            flyout.Topmost = true;
-            flyout.Focusable = false;
             isolateFlyout = new IsolateFlyout();
-            isolateFlyout.ShowInTaskbar = false;
-            isolateFlyout.Topmost = true;
-            isolateFlyout.Focusable = false;
+            noSessionFlyout = new NoSessionFlyout();
 
             timer = new System.Threading.Timer(_ =>
             {
@@ -33,6 +29,7 @@ namespace Cicada.Services
                 {
                     flyout.Hide();
                     isolateFlyout.Hide();
+                    noSessionFlyout.Hide();
                 });
             }, null, Timeout.Infinite, Timeout.Infinite); // start stopped
         }
@@ -40,6 +37,7 @@ namespace Cicada.Services
         public void ShowFlyout(float level, bool muted, uint pId)
         {
             isolateFlyout.Hide();
+            noSessionFlyout.Hide();
             flyout.SetVolumeText(((int)(level * 100)).ToString());
             flyout.SetSliderValue(level * 100);
             flyout.SetMute(muted);
@@ -54,6 +52,7 @@ namespace Cicada.Services
         public void ShowIsolateFlyout(bool allWereMuted, uint pId)
         {
             flyout.Hide();
+            noSessionFlyout.Hide();
             isolateFlyout.SetText(allWereMuted);
             isolateFlyout.SetFlyoutPosition();
             BitmapSource icon = ForegroundIconHelper.GetForegroundWindowIcon();
@@ -61,6 +60,16 @@ namespace Cicada.Services
             isolateFlyout.Show();
             // switch user focus back to foreground pId
             SetForegroundWindow(System.Diagnostics.Process.GetProcessById((int)pId).Handle);
+            // start/reset timer
+            timer.Change(FlyoutDelayMs, Timeout.Infinite);
+        }
+
+        public void ShowNoSessionFlyout()
+        {
+            flyout.Hide();
+            isolateFlyout.Hide();
+            noSessionFlyout.SetFlyoutPosition();
+            noSessionFlyout.Show();
             // start/reset timer
             timer.Change(FlyoutDelayMs, Timeout.Infinite);
         }
