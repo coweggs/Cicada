@@ -1,6 +1,5 @@
 ﻿using Cicada.Helpers;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Windows.Media.Imaging;
 
 namespace Cicada.Services
@@ -48,8 +47,6 @@ namespace Cicada.Services
             BitmapSource icon = ForegroundIconHelper.GetForegroundWindowIcon();
             flyout.SetIcon(icon);
             flyout.Show();
-            // switch user focus back to foreground pId
-            SetForegroundWindow(System.Diagnostics.Process.GetProcessById((int)pId).Handle);
             // start/reset timer
             timer.Change(FlyoutDelayMs, Timeout.Infinite);
         }
