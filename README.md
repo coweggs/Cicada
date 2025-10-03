@@ -9,9 +9,9 @@ Cicada is a simple program that brings keybinds to volume mixer, specifically on
 - Volume Up Hotkey: `Alt+F7`
 - Volume Down Hotkey: `Alt+F6`
 - Mute Self Hotkey: `Alt+F5`
-- Isolate Hotkey: `Alt+M`
+- Isolate Hotkey: `Alt+M` <br>
   When isolate is pressed, every other active audio session is muted. If all are already muted, then everything is unmuted. Active session always becomes unmuted.
-- Run on Startup
+- Run on Startup <br>
   Right clicking the tray icon brings up a context menu, with an option to toggle run on startup.
 
 To change hotkeys, or change the increment, edit the `config.ini` file within the same directory as the exe.
