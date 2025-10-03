@@ -9,9 +9,9 @@ Cicada is a simple program that brings keybinds to volume mixer, specifically on
 - Volume Up Hotkey: `Alt+F7`
 - Volume Down Hotkey: `Alt+F6`
 - Mute Self Hotkey: `Alt+F5`
-- Isolate Hotkey: `Alt+M`
+- Isolate Hotkey: `Alt+M` <br>
   When isolate is pressed, every other active audio session is muted. If all are already muted, then everything is unmuted. Active session always becomes unmuted.
-- Run on Startup
+- Run on Startup <br>
   Right clicking the tray icon brings up a context menu, with an option to toggle run on startup.
 
 To change hotkeys, or change the increment, edit the `config.ini` file within the same directory as the exe.
@@ -22,12 +22,9 @@ Proper hotkey names can be found here: https://learn.microsoft.com/en-us/dotnet/
   <img width="268" height="150" alt="image" src="https://github.com/user-attachments/assets/fea5ab16-155c-4f84-9edf-836b4666db17" />
 </div>
 
-
-
 ## Notes
-- Make sure the program is actually selected before using the hotkeys. Sometimes the Cicada flyout will be targetted as the new active window, pressing on the desired window again fixes this.
-- This program only detects apps with active audio sessions (the ones that show up in volume mixer).
-- If you have two of the same program open, it will effect both, which is also how it works in Microsoft's Volume Mixer.
+- Cicada can only modify the volume of apps with active audio sessions (the ones that show up in volume mixer).
+- Some apps work on multiple processes, and thus Cicada may accidentally miss them with features such as isolate.
 - Don't press F4 instead of F5 🦄
 
 ## Credits:
