@@ -6,24 +6,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cicada"
         mc:Ignorable="d"
-        AllowsTransparency="True"
-        Background="#242424" BorderThickness="0"
+        AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ShowInTaskbar="False"
         Topmost="True" ResizeMode="NoResize"
         Width="230" Height="50">
-    
-    <Window.Clip>
-        <RectangleGeometry RadiusX="8" RadiusY="8"
-                           Rect="0,0,230,50"/>
-    </Window.Clip>
 
-    <StackPanel Orientation="Horizontal" Margin="12">
-        <TextBlock FontFamily="Segoe Fluent Icons" Text="&#xE890;"
+    <Border Background="#242424"
+            Width="230" Height="50"
+            CornerRadius="8"
+            BorderThickness="1"
+            BorderBrush="#555">
+        <StackPanel Orientation="Horizontal" Margin="12">
+            <TextBlock FontFamily="Segoe Fluent Icons" Text="&#xE890;"
                    Foreground="White" FontSize="24"
                    Margin="0 0 8 0"/>
-        <TextBlock x:Name="VolumeText"
+            <TextBlock x:Name="VolumeText"
                         FontFamily="Segoe UI" Foreground="White"
                         VerticalAlignment="Center" FontSize="14"
                         Text="Couldn't find Audio Session" Width="170"/>
-    </StackPanel>
+        </StackPanel>
+    </Border>
 </Window>

@@ -6,24 +6,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cicada"
         mc:Ignorable="d"
-        AllowsTransparency="True"
-        Background="#242424" BorderThickness="0"
+        AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ShowInTaskbar="False"
         Topmost="True" ResizeMode="NoResize"
-        Width="190" Height="50">
-    
-    <Window.Clip>
-        <RectangleGeometry RadiusX="8" RadiusY="8"
-                           Rect="0,0,190,50"/>
-    </Window.Clip>
-    
-    <StackPanel Orientation="Horizontal" Margin="12">
-        <Image x:Name="AppIconImage"
+        Width="195" Height="50">
+
+    <Border Background="#242424"
+            Width="195" Height="50"
+            CornerRadius="8"
+            BorderThickness="1"
+            BorderBrush="#555">
+        <StackPanel Orientation="Horizontal" Margin="12">
+            <Image x:Name="AppIconImage"
                     Source="/cicada.ico" Width="24" Height="24"
                     Margin="12 0 0 0"/>
-        <TextBlock x:Name="VolumeText"
+            <TextBlock x:Name="VolumeText"
                         FontFamily="Segoe UI" TextAlignment="Center"
                         VerticalAlignment="Center" FontSize="14"
                         Text="Muted Others" Width="120" Foreground="White"/>
-    </StackPanel>
+        </StackPanel>
+    </Border>
+
 </Window>
