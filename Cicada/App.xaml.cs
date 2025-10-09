@@ -12,6 +12,8 @@ namespace Cicada
         private HotkeyManager HotkeyMan;
         private FlyoutManager FlyoutMan;
 
+        private SettingsPage Settings;
+
         public App()
         {
             FlyoutMan = new FlyoutManager();
@@ -20,6 +22,8 @@ namespace Cicada
             AudioMan = new AudioManager(FlyoutMan);
             HotkeyMan = new HotkeyManager(AudioMan, SettingsMan);
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            Settings = new SettingsPage(SettingsMan);
+            Settings.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)

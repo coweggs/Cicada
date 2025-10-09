@@ -2,7 +2,7 @@
 
 namespace Cicada.Services
 {
-    internal class SettingsManager
+    public class SettingsManager
     {
         private IniFile ConfigIni;
 

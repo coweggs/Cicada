@@ -3,43 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:Cicada.Flyouts"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" ResizeMode="NoResize"
         SizeToContent="Height"
         Width="230" Height="350"
         Title="SettingsPage">
 
-    <Window.Resources>
-        <Style x:Key="RoundedTextBox" TargetType="TextBox">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Segoe UI"/>
-            <Setter Property="Padding" Value="8,0"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="#333"/>
-            <Setter Property="BorderBrush" Value="#111"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border x:Name="Border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="4">
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                      VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
-    <Border Background="#242424" CornerRadius="6"
+    <Border Background="#242424" CornerRadius="6" Focusable="True"
+            MouseDown="Window_MouseDown"
             BorderBrush="#111" BorderThickness="1">
         <StackPanel Orientation="Vertical">
             <!--TITLE_BAR-->
-            <Border Background="#1a1a1a" Padding="8"
+            <Border Background="#1a1a1a" Padding="8" Focusable="True"
+                    MouseDown="Titlebar_MouseDown"
                     CornerRadius="6 6 0 0">
                 <Grid>
                     <Image Source="/cicada.ico" Width="16"
@@ -51,7 +28,6 @@
                     </TextBlock>
                     <Button Background="PaleVioletRed"
                             Width="16" Height="16"
-                            x:Name="CloseButton"
                             Click="CloseButton_Click"
                             Padding="0 0 0 0"
                             BorderThickness="0"
@@ -68,47 +44,55 @@
                             Padding="0 3 0 0" CornerRadius="3.5 3.5 0 0"
                             Height="24">
                         <TextBlock Text="Hotkey Settings"
-                                    FontFamily="Segoe UI" FontWeight="DemiBold"
-                                    TextAlignment="Center" FontSize="12" 
-                                    Foreground="White" />
+                                   FontFamily="Segoe UI" FontWeight="DemiBold"
+                                   TextAlignment="Center" FontSize="12" 
+                                   Foreground="White" />
                     </Border>
                     <Grid>
                         <TextBlock Text="Volume Up:" FontFamily="Segoe UI"
-                                    Foreground="White" Margin="8"
-                                    FontSize="12" Height="16"/>
-                        <TextBox Style="{StaticResource RoundedTextBox}"
-                                    HorizontalAlignment="Right" Width="100"
-                                    Margin="4" TextAlignment="Right">
+                                   Foreground="White" Margin="8"
+                                   FontSize="12" Height="16"/>
+                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
+                                 BorderThickness="1" BorderBrush="#111"
+                                 Background="#333" 
+                                 HorizontalAlignment="Right" Width="100"
+                                 Margin="4" TextAlignment="Right">
                             Alt + F6
                         </TextBox>
                     </Grid>
                     <Grid>
                         <TextBlock Text="Volume Down:" FontFamily="Segoe UI"
-                                    Foreground="White" Margin="8"
-                                    FontSize="12" Height="16"/>
-                        <TextBox Style="{StaticResource RoundedTextBox}"
-                                    HorizontalAlignment="Right" Width="100"
-                                    Margin="4" TextAlignment="Right">
+                                   Foreground="White" Margin="8"
+                                   FontSize="12" Height="16"/>
+                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
+                                 BorderThickness="1" BorderBrush="#111"
+                                 Background="#333" 
+                                 HorizontalAlignment="Right" Width="100"
+                                 Margin="4" TextAlignment="Right">
                             Alt + F7
                         </TextBox>
                     </Grid>
                     <Grid>
                         <TextBlock Text="Mute Audio:" FontFamily="Segoe UI"
-                                    Foreground="White" Margin="8"
-                                    FontSize="12" Height="16"/>
-                        <TextBox Style="{StaticResource RoundedTextBox}"
-                                    HorizontalAlignment="Right" Width="100"
-                                    Margin="5" TextAlignment="Right">
+                                   Foreground="White" Margin="8"
+                                   FontSize="12" Height="16"/>
+                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
+                                 BorderThickness="1" BorderBrush="#111"
+                                 Background="#333" 
+                                 HorizontalAlignment="Right" Width="100"
+                                 Margin="5" TextAlignment="Right">
                             Alt + F8
                         </TextBox>
                     </Grid>
                     <Grid>
                         <TextBlock Text="Isolate Audio:" FontFamily="Segoe UI"
-                                    Foreground="White" Margin="8"
-                                    FontSize="12" Height="16"/>
-                        <TextBox Style="{StaticResource RoundedTextBox}"
-                                    HorizontalAlignment="Right" Width="100"
-                                    Margin="4" TextAlignment="Right">
+                                   Foreground="White" Margin="8"
+                                   FontSize="12" Height="16"/>
+                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
+                                 BorderThickness="1" BorderBrush="#111"
+                                 Background="#333" 
+                                 HorizontalAlignment="Right" Width="100"
+                                 Margin="4" TextAlignment="Right">
                             Alt + M
                         </TextBox>
                     </Grid>
@@ -119,11 +103,14 @@
                     CornerRadius="4" Background="#2a2a2a"
                     BorderBrush="#111">
                 <StackPanel>
-                    <TextBlock Text="Behaviour Settings" Background="#1e1e1e"
-                               FontFamily="Segoe UI" FontWeight="DemiBold"
-                               TextAlignment="Center"
-                               Foreground="White" Margin="0 0 0 0" Padding="0 3 0 0"
-                               FontSize="12" Height="24"/>
+                    <Border Background="#1e1e1e" Margin="0 0 0 0"
+                            Padding="0 3 0 0" CornerRadius="3.5 3.5 0 0"
+                            Height="24">
+                        <TextBlock Text="Behaviour Settings"
+                                    FontFamily="Segoe UI" FontWeight="DemiBold"
+                                    TextAlignment="Center" FontSize="12" 
+                                    Foreground="White" />
+                    </Border>
                     <Grid>
                         <TextBlock Text="Run on Startup:" FontFamily="Segoe UI"
                                    Foreground="White" Margin="8"
@@ -139,18 +126,35 @@
                         <TextBlock Text="Volume Step:" FontFamily="Segoe UI"
                                    Foreground="White" Margin="8"
                                    FontSize="12" Height="16"/>
-                        <TextBox Style="{StaticResource RoundedTextBox}"
-                                 HorizontalAlignment="Right" Width="50"
-                                 Margin="4" TextAlignment="Right">
-                            2
-                        </TextBox>
+                        <ui:NumberBox Padding="8, 0" VerticalContentAlignment="Center"
+                                      BorderThickness="1" BorderBrush="#111"
+                                      Background="#333" MaxDecimalPlaces="0"
+                                      SpinButtonPlacementMode="Hidden"
+                                      ClearButtonEnabled="False"
+                                      HorizontalAlignment="Right" Width="70"
+                                      Margin="4" TextAlignment="Right"
+                                      LostFocus="VolumeStep_LostFocus"
+                                      Minimum="1" Maximum="100"
+                                      Value="2"/>
                     </Grid>
-                    <TextBlock Text="C:\Users\BON0015\source\repos\Cicada\Cicada\bin\Debug\net8.0-windows\Cicada.exe"
-                               FontFamily="Segoe UI" TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" Margin="8 0 8 8"
-                               FontSize="9"/>
                 </StackPanel>
             </Border>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="8 0 4 8"
+                        Click="OpenIniFile_Click">
+                    <TextBlock FontSize="12" Width="77.5"
+                               TextAlignment="Center"
+                               FontFamily="Segoe UI"
+                               Text="Open INI File"/>
+                </Button>
+                <Button Margin="4 0 8 8"
+                        Click="SaveSettings_Click">
+                    <TextBlock FontSize="12" Width="77.5"
+                               TextAlignment="Center"
+                               FontFamily="Segoe UI"
+                               Text="Save Settings"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
     </Border>
 </Window>
