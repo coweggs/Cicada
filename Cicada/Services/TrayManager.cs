@@ -1,74 +1,36 @@
-﻿using Microsoft.Win32;
+﻿using Cicada.Flyouts;
 using System.Diagnostics;
 using System.IO;
 
 namespace Cicada.Services
 {
-    internal class TrayManager
+    public class TrayManager
     {
-        private const string RegKeyName = "Cicada";
+        public readonly NotifyIcon TrayIcon;
+        private readonly SettingsWindow settingsWindow;
 
-        private readonly NotifyIcon TrayIcon;
-
-        public TrayManager()
+        public TrayManager(SettingsWindow _settingsWindow)
         {
-            TrayIcon = new System.Windows.Forms.NotifyIcon();
+            settingsWindow = _settingsWindow;
 
             // tray icon
+            TrayIcon = new NotifyIcon();
             TrayIcon.Visible = true;
 
             var exeDir = AppDomain.CurrentDomain.BaseDirectory;
-            TrayIcon.Icon = new System.Drawing.Icon(Path.Combine(exeDir, "cicada.ico"));
+            TrayIcon.Icon = new Icon(Path.Combine(exeDir, "cicada.ico"));
 
             TrayIcon.Text = "Cicada";
 
             TrayIcon.ContextMenuStrip = new ContextMenuStrip();
-            bool startupEnabled = IsRunOnStartupEnabled();
-            SetRunOnStartup(startupEnabled); // refresh registry path
-            ToolStripMenuItem RunOnStartupItem = new ToolStripMenuItem()
-            {
-                Text = "Run on Startup",
-                Checked = startupEnabled,
-                CheckOnClick = false
-            };
-            RunOnStartupItem.Click += (s, e) =>
-            {
-                RunOnStartupItem.Checked = !RunOnStartupItem.Checked;
-                SetRunOnStartup(RunOnStartupItem.Checked);
-            };
-            TrayIcon.ContextMenuStrip.Items.Add(RunOnStartupItem);
             TrayIcon.ContextMenuStrip.Items.Add("Settings", null, Settings_Clicked);
             TrayIcon.ContextMenuStrip.Items.Add("Exit", null, Exit_Clicked);
         }
 
-        private bool IsRunOnStartupEnabled()
-        {
-            RegistryKey? key = Registry.CurrentUser.OpenSubKey
-                (@"Software\Microsoft\Windows\CurrentVersion\Run", false);
-            return key?.GetValue(RegKeyName) != null;
-        }
-
-        private void SetRunOnStartup(bool enabled)
-        {
-            RegistryKey? key = Registry.CurrentUser.OpenSubKey
-                (@"Software\Microsoft\Windows\CurrentVersion\Run", true);
-            if (enabled)
-            {
-                key?.SetValue(RegKeyName, Application.ExecutablePath);
-            }
-            else
-            {
-                key?.DeleteValue(RegKeyName, false);
-            }
-        }
-
         private void Settings_Clicked(object? sender, EventArgs e)
         {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "config.ini",
-                UseShellExecute = true,
-            });
+            settingsWindow.Show();
+            settingsWindow.Activate();
         }
 
         private void Exit_Clicked(object? sender, EventArgs e)

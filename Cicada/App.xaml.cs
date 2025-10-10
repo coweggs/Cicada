@@ -11,18 +11,18 @@ namespace Cicada
         private HotkeyManager HotkeyMan;
         private FlyoutManager FlyoutMan;
 
-        private SettingsPage Settings;
+        private SettingsWindow Settings;
 
         public App()
         {
+            Settings = new SettingsWindow();
+            Settings.Show();
+
             FlyoutMan = new FlyoutManager();
-            TrayMan = new TrayManager();
+            TrayMan = new TrayManager(Settings);
             AudioMan = new AudioManager(FlyoutMan);
             HotkeyMan = new HotkeyManager(AudioMan);
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
-
-            Settings = new SettingsPage();
-            Settings.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)

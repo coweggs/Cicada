@@ -7,13 +7,22 @@ using Gma.System.MouseKeyHook;
 
 namespace Cicada.Flyouts
 {
-    public partial class SettingsPage : Window, IDisposable
+    public partial class SettingsWindow : Window, IDisposable
     {
         private readonly IKeyboardMouseEvents GlobalHook;
 
-        public SettingsPage()
+        public SettingsWindow()
         {
             InitializeComponent();
+
+            // setup default values
+            VolumeUpHotkey.Content = Settings.ReadField(Settings.VOLUME_UP);
+            VolumeDownHotkey.Content = Settings.ReadField(Settings.VOLUME_DOWN);
+            MuteAudioHotkey.Content = Settings.ReadField(Settings.VOLUME_MUTE);
+            IsolateAudioHotkey.Content = Settings.ReadField(Settings.ISOLATE);
+            double.TryParse(Settings.ReadField(Settings.INCREMENT), out double step);
+            VolumeStepBox.Value = step;
+            RunOnStartupCheckbox.IsChecked = Settings.IsRunOnStartupEnabled();
 
             GlobalHook = Hook.GlobalEvents();
             GlobalHook.KeyDown += OnKeyDown;
@@ -132,27 +141,14 @@ namespace Cicada.Flyouts
 
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
-            //
-        }
-
-        private void VolumeUpHotkey_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void VolumeDownHotkey_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MuteAudioHotkey_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void IsolateAudioHotkey_LostFocus(object sender, RoutedEventArgs e)
-        {
-
+            Settings.UpdateField("VolUpKey", VolumeUpHotkey.Content.ToString());
+            Settings.UpdateField("VolDownKey", VolumeDownHotkey.Content.ToString());
+            Settings.UpdateField("VolMuteKey", MuteAudioHotkey.Content.ToString());
+            Settings.UpdateField("IsolateKey", IsolateAudioHotkey.Content.ToString());
+            Settings.UpdateField("Increment", VolumeStepBox.Text);
+            Settings.UpdateStartupEntry(RunOnStartupCheckbox.IsChecked);
+            Settings.UpdateIncrement();
+            Settings.UpdateHotkeys();
         }
 
         public void Dispose()

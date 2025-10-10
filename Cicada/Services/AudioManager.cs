@@ -14,10 +14,10 @@ namespace Cicada.Services
         private readonly FlyoutManager FlyoutMan;
         private readonly MMDeviceEnumerator Enumerator;
 
-        public AudioManager(FlyoutManager flyoutManager)
+        public AudioManager(FlyoutManager _flyoutManager)
         {
             Enumerator = new MMDeviceEnumerator();
-            FlyoutMan = flyoutManager;
+            FlyoutMan = _flyoutManager;
         }
 
         private AudioSessionControl? GetSessionFromPID(uint pId)

@@ -7,10 +7,10 @@ namespace Cicada.Services
         private readonly IKeyboardMouseEvents GlobalHook;
         private readonly AudioManager AudioMan;
 
-        public HotkeyManager(AudioManager audioManager)
+        public HotkeyManager(AudioManager _audioManager)
         {
             GlobalHook = Hook.GlobalEvents();
-            AudioMan = audioManager;
+            AudioMan = _audioManager;
 
             // register event
             GlobalHook.KeyDown += OnKeyDown;

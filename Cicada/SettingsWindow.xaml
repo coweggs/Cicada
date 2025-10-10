@@ -1,4 +1,4 @@
-﻿<Window x:Class="Cicada.Flyouts.SettingsPage"
+﻿<Window x:Class="Cicada.Flyouts.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,7 @@
         Background="Transparent" ResizeMode="NoResize"
         SizeToContent="Height"
         Width="250" Height="350"
-        Title="SettingsPage">
+        Title="Cicada Settings">
 
     <Border Background="#242424" CornerRadius="6" Focusable="True"
             MouseDown="Window_MouseDown"
@@ -119,7 +119,8 @@
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Right"
                                   BorderThickness="0.7" BorderBrush="#111"
-                                  Margin="-6 0" IsChecked="False">
+                                  Margin="-6 0" IsChecked="False"
+                                  x:Name="RunOnStartupCheckbox">
                         </CheckBox>
                     </Grid>
                     <Grid>
@@ -135,7 +136,7 @@
                                       Margin="4" TextAlignment="Right"
                                       LostFocus="VolumeStep_LostFocus"
                                       Minimum="1" Maximum="100"
-                                      Value="2"/>
+                                      Value="2" x:Name="VolumeStepBox"/>
                     </Grid>
                 </StackPanel>
             </Border>
