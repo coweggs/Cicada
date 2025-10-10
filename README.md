@@ -6,21 +6,28 @@
 Cicada is a simple program that brings keybinds to volume mixer, specifically on the currently active window. <br/>
 
 ## Main Features
-- Volume Up Hotkey: `Alt+F7`
-- Volume Down Hotkey: `Alt+F6`
-- Mute Self Hotkey: `Alt+F5`
-- Isolate Hotkey: `Alt+M` <br>
-  When isolate is pressed, every other active audio session is muted. If all are already muted, then everything is unmuted. Active session always becomes unmuted.
-- Run on Startup <br>
-  Right clicking the tray icon brings up a context menu, with an option to toggle run on startup.
-
-To change hotkeys, or change the increment, edit the `config.ini` file within the same directory as the exe.
-Proper hotkey names can be found here: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keys
+- **Foreground Application Volume Control** <br>
+  Using the specified hotkeys, you can change the volume of ONLY whatever app you're currently on! <br>
+  Volume Up: `Alt+F7` <br>
+  Volume Down: `Alt+F6` <br>
+  Mute Self: `Alt+F5` <br>
+- **Isolate Applcation Volume** <br>
+  When isolate is pressed, every OTHER active audio session is muted. If all are already muted, then everything is unmuted. Active session always becomes unmuted. <br>
+  Isolate: `Alt+M` <br>
+- **Editable Volume Step** <br>
+  Change the amount volume up and down change the session volume by! This can be changed via the settings window/config.ini.
 
 <div align="center">
-  <img width="393" height="150" alt="Cicada Flyout" src="https://github.com/user-attachments/assets/d38ef1ba-b131-4cb3-bd0c-befadae29f5a" />
-  <img width="268" height="150" alt="image" src="https://github.com/user-attachments/assets/fea5ab16-155c-4f84-9edf-836b4666db17" />
+  <img width="305" height="144" alt="image" src="https://github.com/user-attachments/assets/a0e03b08-cccc-4bb6-bbe5-8adfdb4773d8" />
+  <img width="234" height="144" alt="image" src="https://github.com/user-attachments/assets/fc67a2ca-5f34-4297-9ad5-5abd6445083d" />
 </div>
+
+## How to Change Hotkeys (and other settings)
+<div align="center">
+  <img width="811" height="625" alt="image" src="https://github.com/user-attachments/assets/168bb73d-0b58-4e9d-8b88-4767ef5103fc" />
+</div>
+You can access this settings menu via the tray icon. Alternatively, you can manually edit the `config.ini` file within the same directory as the exe.
+
 
 ## Notes
 - Cicada can only modify the volume of apps with active audio sessions (the ones that show up in volume mixer).
@@ -30,4 +37,5 @@ Proper hotkey names can be found here: https://learn.microsoft.com/en-us/dotnet/
 ## Credits:
 - Session Audio Manipulation: https://github.com/naudio/NAudio
 - Global Keyhooks: https://github.com/gmamaladze/globalmousekeyhook
+- Fluent UI: https://github.com/lepoco/wpfui
 - IniFile Class: https://stackoverflow.com/questions/217902/reading-writing-an-ini-file
