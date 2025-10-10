@@ -7,7 +7,7 @@
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" ResizeMode="NoResize"
         SizeToContent="Height"
-        Width="230" Height="350"
+        Width="250" Height="350"
         Title="SettingsPage">
 
     <Border Background="#242424" CornerRadius="6" Focusable="True"
@@ -52,49 +52,49 @@
                         <TextBlock Text="Volume Up:" FontFamily="Segoe UI"
                                    Foreground="White" Margin="8"
                                    FontSize="12" Height="16"/>
-                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
-                                 BorderThickness="1" BorderBrush="#111"
-                                 Background="#333" 
-                                 HorizontalAlignment="Right" Width="100"
-                                 Margin="4" TextAlignment="Right">
+                        <Button Padding="8, 0" VerticalContentAlignment="Center"
+                                BorderThickness="1" BorderBrush="#111"
+                                Background="#333" Margin="4"
+                                HorizontalAlignment="Right" Width="120"
+                                x:Name="VolumeUpHotkey">
                             Alt + F6
-                        </TextBox>
+                        </Button>
                     </Grid>
                     <Grid>
                         <TextBlock Text="Volume Down:" FontFamily="Segoe UI"
                                    Foreground="White" Margin="8"
                                    FontSize="12" Height="16"/>
-                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
-                                 BorderThickness="1" BorderBrush="#111"
-                                 Background="#333" 
-                                 HorizontalAlignment="Right" Width="100"
-                                 Margin="4" TextAlignment="Right">
+                        <Button Padding="8, 0" VerticalContentAlignment="Center"
+                                BorderThickness="1" BorderBrush="#111"
+                                Background="#333" Margin="4"
+                                HorizontalAlignment="Right" Width="120"
+                                x:Name="VolumeDownHotkey">
                             Alt + F7
-                        </TextBox>
+                        </Button>
                     </Grid>
                     <Grid>
                         <TextBlock Text="Mute Audio:" FontFamily="Segoe UI"
                                    Foreground="White" Margin="8"
                                    FontSize="12" Height="16"/>
-                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
-                                 BorderThickness="1" BorderBrush="#111"
-                                 Background="#333" 
-                                 HorizontalAlignment="Right" Width="100"
-                                 Margin="5" TextAlignment="Right">
+                        <Button Padding="8, 0" VerticalContentAlignment="Center"
+                                BorderThickness="1" BorderBrush="#111"
+                                Background="#333" Margin="4"
+                                HorizontalAlignment="Right" Width="120"
+                                x:Name="MuteAudioHotkey">
                             Alt + F8
-                        </TextBox>
+                        </Button>
                     </Grid>
                     <Grid>
                         <TextBlock Text="Isolate Audio:" FontFamily="Segoe UI"
                                    Foreground="White" Margin="8"
                                    FontSize="12" Height="16"/>
-                        <TextBox Padding="8, 0" VerticalContentAlignment="Center"
-                                 BorderThickness="1" BorderBrush="#111"
-                                 Background="#333" 
-                                 HorizontalAlignment="Right" Width="100"
-                                 Margin="4" TextAlignment="Right">
+                        <Button Padding="8, 0" VerticalContentAlignment="Center"
+                                BorderThickness="1" BorderBrush="#111"
+                                Background="#333" Margin="4"
+                                HorizontalAlignment="Right" Width="120"
+                                x:Name="IsolateAudioHotkey">
                             Alt + M
-                        </TextBox>
+                        </Button>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -142,14 +142,14 @@
             <StackPanel Orientation="Horizontal">
                 <Button Margin="8 0 4 8"
                         Click="OpenIniFile_Click">
-                    <TextBlock FontSize="12" Width="77.5"
+                    <TextBlock FontSize="12" Width="87"
                                TextAlignment="Center"
                                FontFamily="Segoe UI"
                                Text="Open INI File"/>
                 </Button>
                 <Button Margin="4 0 8 8"
                         Click="SaveSettings_Click">
-                    <TextBlock FontSize="12" Width="77.5"
+                    <TextBlock FontSize="12" Width="87"
                                TextAlignment="Center"
                                FontFamily="Segoe UI"
                                Text="Save Settings"/>
