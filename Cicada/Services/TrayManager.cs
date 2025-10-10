@@ -29,6 +29,7 @@ namespace Cicada.Services
 
         private void Settings_Clicked(object? sender, EventArgs e)
         {
+            settingsWindow.SetupFields();
             settingsWindow.Show();
             settingsWindow.Activate();
         }

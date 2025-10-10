@@ -15,14 +15,7 @@ namespace Cicada.Flyouts
         {
             InitializeComponent();
 
-            // setup default values
-            VolumeUpHotkey.Content = Settings.ReadField(Settings.VOLUME_UP);
-            VolumeDownHotkey.Content = Settings.ReadField(Settings.VOLUME_DOWN);
-            MuteAudioHotkey.Content = Settings.ReadField(Settings.VOLUME_MUTE);
-            IsolateAudioHotkey.Content = Settings.ReadField(Settings.ISOLATE);
-            double.TryParse(Settings.ReadField(Settings.INCREMENT), out double step);
-            VolumeStepBox.Value = step;
-            RunOnStartupCheckbox.IsChecked = Settings.IsRunOnStartupEnabled();
+            SetupFields();
 
             GlobalHook = Hook.GlobalEvents();
             GlobalHook.KeyDown += OnKeyDown;
@@ -149,6 +142,17 @@ namespace Cicada.Flyouts
             Settings.UpdateStartupEntry(RunOnStartupCheckbox.IsChecked);
             Settings.UpdateIncrement();
             Settings.UpdateHotkeys();
+        }
+
+        public void SetupFields()
+        {
+            VolumeUpHotkey.Content = Settings.ReadField(Settings.VOLUME_UP);
+            VolumeDownHotkey.Content = Settings.ReadField(Settings.VOLUME_DOWN);
+            MuteAudioHotkey.Content = Settings.ReadField(Settings.VOLUME_MUTE);
+            IsolateAudioHotkey.Content = Settings.ReadField(Settings.ISOLATE);
+            double.TryParse(Settings.ReadField(Settings.INCREMENT), out double step);
+            VolumeStepBox.Value = step;
+            RunOnStartupCheckbox.IsChecked = Settings.IsRunOnStartupEnabled();
         }
 
         public void Dispose()
