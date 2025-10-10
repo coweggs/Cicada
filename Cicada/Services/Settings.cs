@@ -16,11 +16,6 @@ namespace Cicada.Services
         public static string VOLUME_MUTE = "VolMuteKey";
         public static string ISOLATE = "IsolateKey";
 
-        private const Keys VOLUME_UP_FALLBACK = Keys.Alt | Keys.F7;
-        private const Keys VOLUME_DOWN_FALLBACK = Keys.Alt | Keys.F6;
-        private const Keys MUTE_FALLBACK = Keys.Alt | Keys.F5;
-        private const Keys ISOLATE_FALLBACK = Keys.Alt | Keys.M;
-
         public static Keys VolumeUpKey;
         public static Keys VolumeDownKey;
         public static Keys MuteKey;
@@ -113,10 +108,10 @@ namespace Cicada.Services
 
         public static void UpdateHotkeys()
         {
-            VolumeUpKey = ReadKey(VOLUME_UP, VOLUME_UP_FALLBACK);
-            VolumeDownKey = ReadKey(VOLUME_DOWN, VOLUME_DOWN_FALLBACK);
-            MuteKey = ReadKey(VOLUME_MUTE, MUTE_FALLBACK);
-            IsolateKey = ReadKey(ISOLATE, ISOLATE_FALLBACK);
+            VolumeUpKey = ReadKey(VOLUME_UP, Keys.Alt | Keys.F7);
+            VolumeDownKey = ReadKey(VOLUME_DOWN, Keys.Alt | Keys.F6);
+            MuteKey = ReadKey(VOLUME_MUTE, Keys.Alt | Keys.F5);
+            IsolateKey = ReadKey(ISOLATE, Keys.Alt | Keys.M);
         }
     }
 }

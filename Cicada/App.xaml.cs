@@ -15,14 +15,14 @@ namespace Cicada
 
         public App()
         {
-            // ui
             Settings = new SettingsWindow();
-            ShutdownMode = ShutdownMode.OnExplicitShutdown;
-            // services
+            Settings.Show();
+
             FlyoutMan = new FlyoutManager();
             TrayMan = new TrayManager(Settings);
             AudioMan = new AudioManager(FlyoutMan);
             HotkeyMan = new HotkeyManager(AudioMan);
+            ShutdownMode = ShutdownMode.OnExplicitShutdown;
         }
 
         protected override void OnExit(ExitEventArgs e)
