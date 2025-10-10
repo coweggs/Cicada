@@ -7,16 +7,13 @@ using Gma.System.MouseKeyHook;
 
 namespace Cicada.Flyouts
 {
-    public partial class SettingsPage : Window
+    public partial class SettingsPage : Window, IDisposable
     {
         private readonly IKeyboardMouseEvents GlobalHook;
-        private SettingsManager SettingsMan;
 
-        public SettingsPage(SettingsManager settingsManager)
+        public SettingsPage()
         {
             InitializeComponent();
-
-            SettingsMan = settingsManager;
 
             GlobalHook = Hook.GlobalEvents();
             GlobalHook.KeyDown += OnKeyDown;
@@ -156,6 +153,11 @@ namespace Cicada.Flyouts
         private void IsolateAudioHotkey_LostFocus(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void Dispose()
+        {
+            GlobalHook.Dispose();
         }
     }
 }

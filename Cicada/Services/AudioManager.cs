@@ -90,7 +90,7 @@ namespace Cicada.Services
             AudioSessionControl? session = GetActiveSession();
             if (session != null)
             {
-                session.SimpleAudioVolume.Volume += increment;
+                session.SimpleAudioVolume.Volume = Math.Clamp(session.SimpleAudioVolume.Volume + increment, 0, 1);
                 FlyoutMan.ShowFlyout(session.SimpleAudioVolume.Volume, false, GetActivePID());
             }
         }
@@ -100,7 +100,7 @@ namespace Cicada.Services
             AudioSessionControl? session = GetActiveSession();
             if (session != null)
             {
-                session.SimpleAudioVolume.Volume -= increment;
+                session.SimpleAudioVolume.Volume = Math.Clamp(session.SimpleAudioVolume.Volume - increment, 0, 1);
                 FlyoutMan.ShowFlyout(session.SimpleAudioVolume.Volume, false, GetActivePID());
             }
         }

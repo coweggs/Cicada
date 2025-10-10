@@ -7,25 +7,10 @@ namespace Cicada.Services
         private readonly IKeyboardMouseEvents GlobalHook;
         private readonly AudioManager AudioMan;
 
-        private Keys Mod;
-        private Keys VolumeUpKey;
-        private Keys VolumeDownKey;
-        private Keys MuteKey;
-        private Keys IsolateKey;
-        private float increment;
-
-        public HotkeyManager(AudioManager audioManager, SettingsManager settingsManager)
+        public HotkeyManager(AudioManager audioManager)
         {
             GlobalHook = Hook.GlobalEvents();
             AudioMan = audioManager;
-
-            // get settings
-            Mod = settingsManager.GetModKey();
-            VolumeUpKey = settingsManager.GetVolUpKey();
-            VolumeDownKey = settingsManager.GetVolDownKey();
-            MuteKey = settingsManager.GetVolMuteKey();
-            IsolateKey = settingsManager.GetIsolateKey();
-            increment = settingsManager.GetIncrement() / 100;
 
             // register event
             GlobalHook.KeyDown += OnKeyDown;
@@ -33,24 +18,21 @@ namespace Cicada.Services
 
         private void OnKeyDown(object? sender, KeyEventArgs e)
         {
-            if (e.Modifiers == Mod)
+            if (e.KeyData == Settings.VolumeUpKey)
             {
-                if (e.KeyCode == VolumeUpKey)
-                {
-                    AudioMan.IncreaseVolume(increment);
-                }
-                else if (e.KeyCode == VolumeDownKey)
-                {
-                    AudioMan.DecreaseVolume(increment);
-                }
-                else if (e.KeyCode == MuteKey)
-                {
-                    AudioMan.ToggleSessionMute();
-                }
-                else if (e.KeyCode == IsolateKey)
-                {
-                    AudioMan.IsolateSession();
-                }
+                AudioMan.IncreaseVolume(Settings.increment / 100);
+            }
+            else if (e.KeyData == Settings.VolumeDownKey)
+            {
+                AudioMan.DecreaseVolume(Settings.increment / 100);
+            }
+            else if (e.KeyData == Settings.MuteKey)
+            {
+                AudioMan.ToggleSessionMute();
+            }
+            else if (e.KeyData == Settings.IsolateKey)
+            {
+                AudioMan.IsolateSession();
             }
         }
 

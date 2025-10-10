@@ -8,7 +8,6 @@ namespace Cicada
     {
         private AudioManager AudioMan;
         private TrayManager TrayMan;
-        private SettingsManager SettingsMan;
         private HotkeyManager HotkeyMan;
         private FlyoutManager FlyoutMan;
 
@@ -18,11 +17,11 @@ namespace Cicada
         {
             FlyoutMan = new FlyoutManager();
             TrayMan = new TrayManager();
-            SettingsMan = new SettingsManager();
             AudioMan = new AudioManager(FlyoutMan);
-            HotkeyMan = new HotkeyManager(AudioMan, SettingsMan);
+            HotkeyMan = new HotkeyManager(AudioMan);
             ShutdownMode = ShutdownMode.OnExplicitShutdown;
-            Settings = new SettingsPage(SettingsMan);
+
+            Settings = new SettingsPage();
             Settings.Show();
         }
 
