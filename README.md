@@ -10,7 +10,7 @@ Cicada is a simple program that brings keybinds to volume mixer, specifically on
   Using the specified hotkeys, you can change the volume of ONLY whatever app you're currently on! <br>
   Volume Up: `Alt+F7` <br>
   Volume Down: `Alt+F6` <br>
-  Mute Self: `Alt+F5` <br>
+  Mute: `Alt+F5` <br>
 - **Isolate Applcation Volume** <br>
   When isolate is pressed, every OTHER active audio session is muted. If all are already muted, then everything is unmuted. Active session always becomes unmuted. <br>
   Isolate: `Alt+M` <br>
